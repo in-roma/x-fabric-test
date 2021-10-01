@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
 export default function Form() {
 	const initialState = {
@@ -47,65 +48,100 @@ export default function Form() {
 		setValidate(false);
 	};
 
+	// Layout (styled components)
+	const FormPage = styled.section`
+		poistion: relative;
+		margin: 10vh 10vw 10vh 10vw;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	`;
+
+	const Header = styled.section``;
+
+	const Form = styled.form`
+		display: grid;
+		row-gap: 2rem;
+	`;
+
+	const Label = styled.label`
+		margin-left: 0.5rem;
+	`;
+
+	const Input = styled.input`
+		margin-left: 1rem;
+	`;
+
+	const Footer = styled.section`
+		position: absolute;
+		bottom: 0;
+		font-size: 0.8rem;
+	`;
+
 	return (
-		<div className="form_page">
+		<FormPage>
+			<Header>
+				<img src="../../public/LogoX-Tract.png" alt="logo X-Tract" />
+				<span>Formulaire X-Tract</span>
+			</Header>
 			{!validate && (
-				<form onSubmit={handlingSubmit}>
-					<label>
+				<Form onSubmit={handlingSubmit}>
+					<Label>
 						Prénom:
-						<input
+						<Input
 							type="text"
 							placeholder="."
 							onChange={onChange}
 							name="firstName"
 							autoComplete="off"
 							value={infos.firstName}
-						></input>
-					</label>
+						></Input>
+					</Label>
 					{missingField &&
 						infos.firstName.length < 1 &&
 						displayErrorMessage('Prénom')}
-					<label>
+					<Label>
 						Nom:
-						<input
+						<Input
 							type="text"
 							placeholder="."
 							onChange={onChange}
 							name="lastName"
 							autoComplete="off"
 							value={infos.lastName}
-						></input>
-					</label>
+						></Input>
+					</Label>
 					{missingField &&
 						infos.lastName.length < 1 &&
 						displayErrorMessage('Nom de Famille')}
-					<label>
+					<Label>
 						Email:
-						<input
+						<Input
 							type="email"
 							placeholder="."
 							onChange={onChange}
 							name="email"
 							autoComplete="off"
 							value={infos.email}
-						></input>
-					</label>
+						></Input>
+					</Label>
 					{missingField &&
 						infos.email.length < 1 &&
 						displayErrorMessage('Email')}
-					<label>
+					<Label>
 						Téléphone:
-						<input
+						<Input
 							type="text"
 							placeholder="."
 							onChange={onChange}
 							name="phone"
 							autoComplete="off"
 							value={infos.phone}
-						></input>
-					</label>
+						></Input>
+					</Label>
 					<button type="submit">Valider</button>
-				</form>
+				</Form>
 			)}
 			{validate && (
 				<div className="results">
@@ -132,6 +168,7 @@ export default function Form() {
 					</button>
 				</div>
 			)}
-		</div>
+			<Footer>Copyright © 2021 X-Tract. Tout droit réservé.</Footer>
+		</FormPage>
 	);
 }
