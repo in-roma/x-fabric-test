@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+// Components & assets
+
+import logo from '../assets/LogoX-Tract.png';
+
 export default function Form() {
 	const initialState = {
 		firstName: '',
@@ -39,7 +43,7 @@ export default function Form() {
 	};
 
 	const displayErrorMessage = (field) => {
-		return <span>{field} doit être renseigné</span>;
+		return <ErrorMessage>{field} doit être renseigné</ErrorMessage>;
 	};
 
 	// Resetting the form
@@ -60,17 +64,23 @@ export default function Form() {
 
 	const Header = styled.section`
 		width: 100%;
-		height: 12vh;
+		height: 18vh;
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		background-color: #aa2f1f;
+		background-color: white;
 		font-size: 2 rem;
 	`;
 
+	const Logo = styled.img`
+		height: 6rem;
+	`;
+
 	const TextHeader = styled.span`
+		margin-top: 1rem;
 		font-size: 1.8rem;
-		color: white;
+		color: black;
 	`;
 
 	const Form = styled.form`
@@ -91,6 +101,11 @@ export default function Form() {
 		margin-left: 1rem;
 	`;
 
+	const ErrorMessage = styled.span`
+		font-size: 0.8rem;
+		color: black;
+	`;
+
 	const Footer = styled.section`
 		position: absolute;
 		bottom: 0;
@@ -100,7 +115,8 @@ export default function Form() {
 	return (
 		<FormPage>
 			<Header>
-				<img src="../../public/LogoX-Tract.png" alt="logo X-Tract" />
+				<Logo src={logo} alt="Logo" />
+
 				<TextHeader>Formulaire X-Tract</TextHeader>
 			</Header>
 			{!validate && (
