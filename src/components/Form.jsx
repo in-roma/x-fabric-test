@@ -51,22 +51,40 @@ export default function Form() {
 	// Layout (styled components)
 	const FormPage = styled.section`
 		poistion: relative;
-		margin: 10vh 10vw 10vh 10vw;
+		margin: 4vh 4vw 4vh 4vw;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 	`;
 
-	const Header = styled.section``;
+	const Header = styled.section`
+		width: 100%;
+		height: 12vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #aa2f1f;
+		font-size: 2 rem;
+	`;
+
+	const TextHeader = styled.span`
+		font-size: 1.8rem;
+		color: white;
+	`;
 
 	const Form = styled.form`
+		width: 100%;
+		height: 100%;
+		margin-top: 4rem;
 		display: grid;
+		justify-items: center;
 		row-gap: 2rem;
 	`;
 
 	const Label = styled.label`
 		margin-left: 0.5rem;
+		font-weight: 600;
 	`;
 
 	const Input = styled.input`
@@ -83,7 +101,7 @@ export default function Form() {
 		<FormPage>
 			<Header>
 				<img src="../../public/LogoX-Tract.png" alt="logo X-Tract" />
-				<span>Formulaire X-Tract</span>
+				<TextHeader>Formulaire X-Tract</TextHeader>
 			</Header>
 			{!validate && (
 				<Form onSubmit={handlingSubmit}>
