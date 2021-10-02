@@ -3,7 +3,6 @@ import styled from 'styled-components';
 // Layout (styled components)
 
 export const FormPage = styled.section`
-	poistion: relative;
 	margin: 2vh 4vw 4vh 4vw;
 	display: flex;
 	flex-direction: column;
@@ -15,19 +14,17 @@ export const Header = styled.section`
 	width: 32rem;
 	height: 10vh;
 	margin-top: 4rem;
+	background-color: white;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: white;
 	font-size: 2 rem;
-
 	border-top: 1px solid #eff7e1;
 	border-bottom: 1px solid #eff7e1;
 `;
 
 export const TextHeader = styled.span`
-	margin-top: 0rem;
 	font-size: 1.8rem;
 	font-weight: 600;
 	color: black;
@@ -36,18 +33,17 @@ export const TextHeader = styled.span`
 export const FormSubscrition = styled.form`
 	width: 32rem;
 	height: 100%;
-	margin: 4rem 0 4rem 0;
+	margin: 4rem 0;
 	display: grid;
 	grid-template-columns: 7rem auto;
 	grid-template-rows: repeat(5, 1.4rem);
 	justify-items: start;
-	row-gap: 2.8rem;
+	row-gap: 3rem;
 `;
 
 export const Label = styled.label`
-	width: 6rem;
-	font-weight: 600;
 	grid-column: 1 / 2;
+	font-weight: 600;
 `;
 
 export const Field = styled.label`
@@ -58,10 +54,10 @@ export const Field = styled.label`
 
 export const Input = styled.input`
 	width: 100%;
+	grid-column: 2/ 3;
 	border: none;
 	outline: none;
 	border-bottom: 1px solid #eff7e1;
-	grid-column: 2/ 3;
 `;
 
 export const ErrorMessage = styled.span`
@@ -100,13 +96,13 @@ export const Button = styled.button`
 export const DataList = styled.ul`
 	width: 32rem;
 	height: 100%;
-	margin: 4rem 0 4rem 0;
+	margin: 4rem 0;
 	padding: 0;
 	display: grid;
 	grid-template-columns: auto;
 	grid-template-rows: repeat(5, 1.4rem);
 	justify-items: start;
-	row-gap: 2.8rem;
+	row-gap: 3rem;
 	list-style-type: none;
 `;
 

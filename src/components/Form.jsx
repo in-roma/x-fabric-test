@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 
 // Components & assets
-import logo from '../assets/LogoX-Tract.png';
 import {
 	FormPage,
 	Header,
-	Logo,
 	TextHeader,
 	FormSubscrition,
 	Label,
@@ -26,6 +24,7 @@ export default function Form() {
 		phone: '',
 	};
 
+	// States management
 	const [infos, setInfos] = useState(initialState);
 	const [validate, setValidate] = useState(false);
 	const [missingField, setMissingField] = useState(false);
@@ -68,9 +67,7 @@ export default function Form() {
 	return (
 		<FormPage>
 			<Header>
-				<TextHeader>
-					{validate ? 'VALIDATION' : 'INSCRIPTION'}
-				</TextHeader>
+				<TextHeader>{validate ? 'DATA' : 'SUBMIT'}</TextHeader>
 			</Header>
 			{!validate && (
 				<FormSubscrition onSubmit={handlingSubmit}>
@@ -81,7 +78,6 @@ export default function Form() {
 							placeholder=""
 							onChange={onChange}
 							name="firstName"
-							autoComplete="off"
 							value={infos.firstName}
 						></Input>
 						{missingField &&
@@ -108,7 +104,6 @@ export default function Form() {
 							placeholder=""
 							onChange={onChange}
 							name="email"
-							autoComplete="off"
 							value={infos.email}
 						></Input>
 						{missingField &&
@@ -122,7 +117,6 @@ export default function Form() {
 						placeholder=""
 						onChange={onChange}
 						name="phone"
-						autoComplete="off"
 						value={infos.phone}
 					></Input>
 					<Button type="submit">Valider</Button>
