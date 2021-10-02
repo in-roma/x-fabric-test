@@ -9,9 +9,12 @@ import {
 	TextHeader,
 	FormSubscrition,
 	Label,
+	Field,
 	Input,
 	ErrorMessage,
 	Button,
+	DataList,
+	DataItem,
 	Footer,
 } from './FormStyles';
 
@@ -65,48 +68,55 @@ export default function Form() {
 	return (
 		<FormPage>
 			<Header>
-				<Logo src={logo} alt="Logo" />
-
-				<TextHeader>Formulaire X-Tract</TextHeader>
+				<TextHeader>
+					{validate ? 'VALIDATION' : 'INSCRIPTION'}
+				</TextHeader>
 			</Header>
 			{!validate && (
 				<FormSubscrition onSubmit={handlingSubmit}>
 					<Label>Prénom:</Label>
-					<Input
-						type="text"
-						placeholder=""
-						onChange={onChange}
-						name="firstName"
-						autoComplete="off"
-						value={infos.firstName}
-					></Input>
-					{missingField &&
-						infos.firstName.length < 1 &&
-						displayErrorMessage('Prénom')}
+					<Field>
+						<Input
+							type="text"
+							placeholder=""
+							onChange={onChange}
+							name="firstName"
+							autoComplete="off"
+							value={infos.firstName}
+						></Input>
+						{missingField &&
+							infos.firstName.length < 1 &&
+							displayErrorMessage('Prénom')}
+					</Field>
 					<Label>Nom:</Label>
-					<Input
-						type="text"
-						placeholder=""
-						onChange={onChange}
-						name="lastName"
-						value={infos.lastName}
-					></Input>
-					{missingField &&
-						infos.lastName.length < 1 &&
-						displayErrorMessage('Nom de Famille')}
+					<Field>
+						<Input
+							type="text"
+							placeholder=""
+							onChange={onChange}
+							name="lastName"
+							value={infos.lastName}
+						></Input>
+						{missingField &&
+							infos.lastName.length < 1 &&
+							displayErrorMessage('Nom de Famille')}
+					</Field>
 					<Label>Email:</Label>
-					<Input
-						type="email"
-						placeholder=""
-						onChange={onChange}
-						name="email"
-						autoComplete="off"
-						value={infos.email}
-					></Input>
-					{missingField &&
-						infos.email.length < 1 &&
-						displayErrorMessage('Email')}
+					<Field>
+						<Input
+							type="email"
+							placeholder=""
+							onChange={onChange}
+							name="email"
+							autoComplete="off"
+							value={infos.email}
+						></Input>
+						{missingField &&
+							infos.email.length < 1 &&
+							displayErrorMessage('Email')}
+					</Field>
 					<Label>Téléphone:</Label>
+
 					<Input
 						type="text"
 						placeholder=""
@@ -119,31 +129,16 @@ export default function Form() {
 				</FormSubscrition>
 			)}
 			{validate && (
-				<div className="results">
-					<ul>
-						<li>
-							<span>Prénom:</span>
-							<span>{infos.firstName}</span>
-						</li>
-						<li>
-							<span>Nom:</span>
-							<span>{infos.lastName}</span>
-						</li>
-						<li>
-							<span>Email:</span>
-							<span>{infos.email}</span>
-						</li>
-						<li>
-							<span>Mobile:</span>
-							<span>{infos.phone}</span>
-						</li>
-					</ul>
+				<DataList>
+					<DataItem>Prénom: {infos.firstName}</DataItem>
+					<DataItem>Nom: {infos.lastName}</DataItem>
+					<DataItem>Email: {infos.email}</DataItem>
+					<DataItem>Mobile: {infos.phone}</DataItem>
 					<Button type="submit" onClick={handlingReset}>
 						Reset
 					</Button>
-				</div>
+				</DataList>
 			)}
-			<Footer>Copyright © 2021 X-Tract. Tout droit réservé.</Footer>
 		</FormPage>
 	);
 }
