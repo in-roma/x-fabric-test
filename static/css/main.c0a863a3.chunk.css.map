@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/App.css"],"names":[],"mappings":"AAAA,MACE,cAAe,CACf,8BAAgC,CAC9B,QAAS,CACT,SACJ","file":"main.c0a863a3.chunk.css","sourcesContent":[":root {\n  font-size: 16px;\n  font-family: Poppins, sans-serif;\n    margin: 0;\n    padding: 0;\n}\n\n"]}
